@@ -31,7 +31,6 @@ let Seeds = [];
 
 //Ending The Game//
 let EndGame = false;
-
 function preload() {
   ////////////////// REPLACE IMAGE ///////////////
   PumpkinImg = loadImage("Spookpumkin.png");
@@ -133,13 +132,18 @@ function Win() {
   textAlign(CENTER, CENTER);
   fill("white");
   textSize(70);
-  text("Winner Winner \n Pumpkin Dinner", 450, 265);
+  text("Winner Winner\nPumpkin Dinner", 450, 265);
   //Stops functions//
-  setTimeout(() => {
     pumpkins = [];
     Seeds = [];
-  }, 0);
 
+textSize(20);
+  text("Re-challenge The King?\nPress R", 450, 400);
+  if(keyIsPressed == true){
+    if (keyCode == 82){
+      Reset();
+    }
+  }
 }
 
 function Projectile() {
@@ -257,13 +261,32 @@ function GameOver() {
   fill("white");
   textSize(70);
   text("Git Gud Scrub", 450, 265);
+  ///Replay Button///
+textSize(20);
+  text("Re-challenge The King?\nPress R", 450, 350);
+  if(keyIsPressed == true){
+    if (keyCode == 82){
+      Reset();
+    }
+  }
   //Stops functions//
-  setTimeout(() => {
-    pumpkins = [];
+   pumpkins = [];
     Seeds = [];
-  }, 0);
-
 }
+
+function Reset() {
+screen = 1;
+pumpkins = [];
+PlayerHP = 3;
+score = 0;
+BossHP = 1;
+MaxBossHP = 150;
+Begin = true;
+Seeds = [];
+EndGame = false;
+noTint();
+}
+
 
 // Field Creation is REPLACE with images//
 function Arena() {
