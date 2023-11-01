@@ -5,6 +5,8 @@ body {
   color: white;
   background-image: url("WebBG.png");
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 canvas {
   margin: auto;
